@@ -9,7 +9,7 @@ class Sidebar extends React.Component {
           <div className="table">
             <div className="table-cell">
               <div className="logo">
-                <a href="index.html">
+                <a href="/">
                   <img src={Logo} alt="Logo" />
                 </a>
               </div>
@@ -17,7 +17,7 @@ class Sidebar extends React.Component {
                 <nav>
                   <ul className="menu-list">
                     <li className="menu-item-has-children">
-                      <a href="index.html">Home</a>
+                      <a href="/">Home</a>
                       <ul className="sub-menu">
                         <li>
                           <a href="index.html">Standard Layout</a>

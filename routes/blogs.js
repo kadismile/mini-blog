@@ -8,9 +8,10 @@ router.post('/create', BlogController.blog_create);
 
 router.get('/:blogId', BlogController.blog_find_one);
 
-router.patch('/:blogId', BlogController.blog_update);
+router.post('/:blogId', BlogController.blog_update);
 
 router.delete('/:blogId',BlogController.blog_delete);
+
 
 
 module.exports = router;
