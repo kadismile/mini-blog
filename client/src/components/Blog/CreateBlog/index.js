@@ -10,25 +10,38 @@ class CreateBlog extends React.Component {
     author: '',
     category: '',
     description: '',
-    categoryId: "2"
+    categoryId: "2",
+    file:''
   };
-  siteUrl = process.env.SITE_URL;
-  componentDidMount(){
-    console.log("CONSOLE ",process.env.SITE_URL)
-  }
+  siteUrl = process.env.REACT_APP_PUBLIC_URL;
+
+
   submitPost = (e)=>{
     e.preventDefault();
-    axios
-      .post(`${this.siteUrl}/blogs/create`, this.state)
-      .then(response => {
+    const {title, author, category, description, categoryId, file
+    } = this.state;
+    console.log(this.state);
+    return
+    const formData = new FormData();
+    formData.append('myImage',file);
+    formData.append('title',title);
+    formData.append('author',author);
+    formData.append('category',category);
+    formData.append('description',description);
+    formData.append('categoryId',categoryId);
+    const config = {
+      headers: {
+        'content-type': 'multipart/form-data'
+      }
+    };
+    axios.post(`${this.siteUrl}/blogs/create`,formData,config)
+      .then((response) => {
         toastr.success("Post Created Successfully");
-      })
-      .catch(error => {
-        toastr.error("An error occured");
-        console.log("Error ", error);
-      });
-    console.log(this.state, this.siteUrl)
-  };
+      }).catch((error) => {
+        console.log(error)
+      toastr.error("An error occured");
+    });
+  }
 
   disableButton = ()=>{
     return !!
@@ -44,13 +57,13 @@ class CreateBlog extends React.Component {
           <div className="posts-inner">
             <article className="post">
               <div className="post-header">
-                <h2 className="title"><span>Post A Blog</span></h2>
+                <h2 className="title"><span>Create Blog</span></h2>
               </div>
 
               <div className="post-content">
                 <div className="the-excerpt">
 
-                  <form action="#" className="contact" style={{marginTop: '10px'}}>
+                  <form action="#" className="contact" style={{marginTop: '10px'}} encType="multipart/form-data">
                     <div className="contact-item">
                       <label>Title *</label>
                       <input name="author" onChange={(e)=> {this.setState({title: e.target.value}) }} type="text" />
@@ -61,13 +74,17 @@ class CreateBlog extends React.Component {
                     </div>
                     <div className="contact-item">
                       <label>Category</label>
-                      <select>
-                        <option value="volvo">Select Category</option>
-                        <option value="volvo">Politics</option>
-                        <option value="saab">Metro</option>
-                        <option value="mercedes">Business</option>
-                        <option value="audi">Sports</option>
+                      <select value={this.state.category} onChange={(e)=>{this.setState({category: e.target.value})}}>
+                        <option value="">Select Category</option>
+                        <option value="Politics">Politics</option>
+                        <option value="Metro">Metro</option>
+                        <option value="Business">Business</option>
+                        <option value="Sports">Sports</option>
                       </select>
+                    </div>
+                    <div className="contact-item">
+                      <label>Upload Image*</label>
+                      <input type='file' id='single' onChange={(e)=> {this.setState({file: e.target.files[0]}) }} />
                     </div>
                     <div className="contact-item">
                       <label>Message *</label>
@@ -78,7 +95,6 @@ class CreateBlog extends React.Component {
                     </div>
                   </form>
                 </div>
-
               </div>
             </article>
           </div>
