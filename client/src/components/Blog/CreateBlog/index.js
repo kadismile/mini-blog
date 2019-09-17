@@ -1,6 +1,9 @@
 import React from 'react'
+import { Redirect } from "react-router-dom";
+import LaddaButton, { XXL,EXPAND_LEFT} from 'react-ladda';
 import axios from 'axios'
 import toastr from "toastr";
+import './createblog.css'
 
 
 class CreateBlog extends React.Component {
@@ -11,17 +14,23 @@ class CreateBlog extends React.Component {
     category: '',
     description: '',
     categoryId: "2",
-    file:''
+    file:'',
+    redirect: false,
+    loading: false
   };
   siteUrl = process.env.REACT_APP_PUBLIC_URL;
-
 
   submitPost = (e)=>{
     e.preventDefault();
     const {title, author, category, description, categoryId, file
     } = this.state;
-    console.log(this.state);
-    return
+
+    console.log(file);
+    if((title === '') || (author === '') || (description === '') || (category === "")){
+      toastr.error("Kindly Fill All Fields");
+      return
+    }
+
     const formData = new FormData();
     formData.append('myImage',file);
     formData.append('title',title);
@@ -34,9 +43,14 @@ class CreateBlog extends React.Component {
         'content-type': 'multipart/form-data'
       }
     };
+
     axios.post(`${this.siteUrl}/blogs/create`,formData,config)
       .then((response) => {
         toastr.success("Post Created Successfully");
+        this.setState({redirect: true});
+        setTimeout(()=>{
+          this.setState({loading: false})
+        },2000);
       }).catch((error) => {
         console.log(error)
       toastr.error("An error occured");
@@ -51,7 +65,8 @@ class CreateBlog extends React.Component {
   };
 
   render() {
-    return (
+    const {redirect, loading} = this.state;
+    return redirect ? <Redirect to="/"/> :  (
       <div className="col-md-9 col-md-offset-3">
         <div className="posts">
           <div className="posts-inner">
@@ -90,9 +105,17 @@ class CreateBlog extends React.Component {
                       <label>Message *</label>
                       <textarea name="comment" onChange={(e)=> {this.setState({description: e.target.value}) }}  />
                     </div>
-                    <div className="contact-item form-submit">
-                      <input name="submit" disabled={this.disableButton()} type="submit" id="submit" onClick={this.submitPost} className="submit" defaultValue="Submit" />
-                    </div>
+                    <LaddaButton
+                      loading={loading}
+                      onClick={this.submitPost}
+                      data-size={XXL}
+                      data-style={EXPAND_LEFT}
+                      data-spinner-size={30}
+                      data-spinner-color="#eee"
+                      data-spinner-lines={20}
+                    >
+                      Submit Post
+                    </LaddaButton>
                   </form>
                 </div>
               </div>

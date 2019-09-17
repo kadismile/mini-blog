@@ -7,10 +7,9 @@ class BlogPost extends React.Component {
 
   state = {
     blogs: []
-  }
+  };
   siteUrl = process.env.REACT_APP_PUBLIC_URL;
   componentDidMount(){
-    console.log("Hello ...");
     try{
       axios.get(`${this.siteUrl}/blogs`)
         .then((response) => {
@@ -34,9 +33,10 @@ class BlogPost extends React.Component {
               return ( <article className="post" key={key}>
                 <div className="post-header">
                   <h2 className="title">
-                    <a href="single.html">{blog.title}</a>
+                    <Link to={`/blog/${blog._id}`}>
+                      {blog.title}
+                    </Link>
                   </h2>
-                  {/* Post Details */}
                   <div className="post-details">
                     <div className="post-cat">
                       <a href="#">{blog.category}</a>
@@ -58,12 +58,11 @@ class BlogPost extends React.Component {
                       </div>
                     </div>
                   </div>
-                  {/* End Post Details */}
                 </div>
                 <div className="post-media">
-                  <a href="single.html">
+                  <Link to={`/blog/${blog._id}`} className="post-views">
                     <img src={blog.imageUrl} alt="Post" />
-                  </a>
+                  </Link>
                 </div>
                 <div className="post-content">
                   {/* The Content */}
@@ -72,7 +71,6 @@ class BlogPost extends React.Component {
                       {blog.description}
                     </p>
                   </div>
-                  {/* End The Content */}
                 </div>
                 <div className="read-more">
                   <a href="single.html">Continue Reading ...</a>
@@ -81,7 +79,6 @@ class BlogPost extends React.Component {
             })}
 
           </div>
-          {/* Pagination */}
           <div className="pagination-wrap">
             <div className="older">
               <a href="#">Older Posts <i className="fa fa-angle-double-right" /></a>
