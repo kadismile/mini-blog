@@ -1,6 +1,8 @@
 import React from 'react'
+import { Redirect } from 'react-router'
 import axios from 'axios'
 import toastr from "toastr";
+import LaddaButton, { XXL,EXPAND_LEFT} from 'react-ladda';
 
 
 class EditBlog extends React.Component {
@@ -12,7 +14,8 @@ class EditBlog extends React.Component {
     description: '',
     categoryId: "",
     file:'',
-    _id: ''
+    _id: '',
+    redirect: false
   };
   siteUrl = process.env.REACT_APP_PUBLIC_URL;
 
@@ -23,7 +26,6 @@ class EditBlog extends React.Component {
     this.setState({_id});
     axios.get(`${this.siteUrl}/blogs/${_id}`)
       .then((response) => {
-        console.log(response.data);
         this.setState(
           {title: response.data.title,
            author: response.data.author,
@@ -40,7 +42,13 @@ class EditBlog extends React.Component {
     e.preventDefault();
     const {title, author, category, description, categoryId, file, _id
     } = this.state;
-    console.log("JJJ ",file);
+
+    console.log(title)
+    if((title === '') || (author === '') || (description === '') || (category === "")){
+      toastr.error("Kindly Fill All Fields");
+      return
+    }
+    this.setState({loading: true});
     const formData = new FormData();
     formData.append('myImage',file);
     formData.append('title',title);
@@ -53,29 +61,22 @@ class EditBlog extends React.Component {
         'content-type': 'multipart/form-data'
       }
     };
-    console.log(this.state)
-    let data = {...this.state, }
     axios.post(`${this.siteUrl}/blogs/${_id}`,formData, config)
       .then((response) => {
         toastr.success("Post Updated Successfully");
+        this.setState({redirect: true});
+        setTimeout(()=>{
+          this.setState({loading: false})
+        },2000);
       }).catch((error) => {
       console.log(error);
       toastr.error("An error occured");
     });
   };
 
-  disableButton = ()=>{
-    const {title, author,description } = this.state;
-    return !!
-        (title === '') ||
-      (author === '') ||
-      (description === '');
-  };
-
   render() {
-    const {title, author, description} = this.state;
-    console.log("title ", this.state.title)
-    return (
+    const {title, author, description, category, redirect, loading} = this.state;
+    return redirect ? <Redirect to="/"/> : (
       <div className="col-md-9 col-md-offset-3">
         <div className="posts">
           <div className="posts-inner">
@@ -98,12 +99,12 @@ class EditBlog extends React.Component {
                     </div>
                     <div className="contact-item">
                       <label>Category</label>
-                      <select>
-                        <option value="volvo">Select Category</option>
-                        <option value="volvo">Politics</option>
-                        <option value="saab">Metro</option>
-                        <option value="mercedes">Business</option>
-                        <option value="audi">Sports</option>
+                      <select value={this.state.category} onChange={(e)=>{this.setState({category: e.target.value})}}>
+                        <option value="">Select Category</option>
+                        <option value="Politics">Politics</option>
+                        <option value="Metro">Metro</option>
+                        <option value="Business">Business</option>
+                        <option value="Sports">Sports</option>
                       </select>
                     </div>
                     <div className="contact-item">
@@ -114,9 +115,18 @@ class EditBlog extends React.Component {
                       <label>Message *</label>
                       <textarea name="comment" type="text" onChange={(e)=> {this.setState({description: e.target.value}) }}  value={description}  />
                     </div>
-                    <div className="contact-item form-submit">
-                      <input name="submit" disabled={this.disableButton()} type="submit" id="submit" onClick={this.submitPost} className="submit" defaultValue="Submit" />
-                    </div>
+
+                    <LaddaButton
+                      loading={loading}
+                      onClick={this.submitPost}
+                      data-size={XXL}
+                      data-style={EXPAND_LEFT}
+                      data-spinner-size={30}
+                      data-spinner-color="#eee"
+                      data-spinner-lines={20}
+                    >
+                      Submit Post
+                    </LaddaButton>
                   </form>
                 </div>
               </div>
