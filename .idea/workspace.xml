@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8eaa3336-316c-49d2-8551-8fc4c11002f0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/public/images/load-icon.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Blog/BlogPosts/blogpost.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Blog/ViewBlog/viewblog.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/debug/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/BlogController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/BlogController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Blog/BlogEdit/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Blog/BlogEdit/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Blog/BlogPosts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Blog/BlogPosts/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Blog/ViewBlog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Blog/ViewBlog/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/blogs.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/blogs.js" afterDir="false" />
-    </list>
+    <list default="true" id="8eaa3336-316c-49d2-8551-8fc4c11002f0" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -65,7 +51,7 @@
           <entry key="CSS" value="31" />
           <entry key="HTML" value="151" />
           <entry key="JSON" value="18" />
-          <entry key="JavaScript" value="9154" />
+          <entry key="JavaScript" value="9158" />
           <entry key="PLAIN_TEXT" value="45" />
         </counts>
       </usages-collector>
@@ -81,8 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Controllers/BlogController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="553">
-              <caret line="28" column="3" lean-forward="true" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
+            <state relative-caret-position="277">
+              <caret line="19" column="69" lean-forward="true" selection-start-line="19" selection-start-column="69" selection-end-line="19" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -99,7 +85,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/Blog/BlogPosts/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="158">
@@ -153,11 +139,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/blogs.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+            <state relative-caret-position="230">
+              <caret line="10" column="52" lean-forward="true" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -236,12 +222,12 @@
         <option value="$PROJECT_DIR$/client/public/css/styles.css" />
         <option value="$PROJECT_DIR$/client/src/components/Blog/ViewBlog/index.js" />
         <option value="$PROJECT_DIR$/client/src/components/Blog/ViewBlog/viewblog.css" />
-        <option value="$PROJECT_DIR$/routes/blogs.js" />
         <option value="$PROJECT_DIR$/client/src/components/Blog/BlogEdit/index.js" />
         <option value="$PROJECT_DIR$/client/src/App.js" />
         <option value="$PROJECT_DIR$/client/src/components/debug/index.js" />
-        <option value="$PROJECT_DIR$/Controllers/BlogController.js" />
         <option value="$PROJECT_DIR$/client/src/components/Blog/BlogPosts/index.js" />
+        <option value="$PROJECT_DIR$/Controllers/BlogController.js" />
+        <option value="$PROJECT_DIR$/routes/blogs.js" />
       </list>
     </option>
   </component>
@@ -331,12 +317,12 @@
       <workItem from="1568533477246" duration="1029000" />
       <workItem from="1568536196479" duration="74390000" />
       <workItem from="1568728012708" duration="3233000" />
-      <workItem from="1568876808234" duration="3157000" />
+      <workItem from="1568876808234" duration="3455000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="225101000" />
+    <option name="totallyTimeSpent" value="225399000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
@@ -354,7 +340,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="GraphQL" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.43114406" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.65148306" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -634,13 +620,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/blogs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/Blog/BlogPosts/blogpost.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -665,13 +644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/BlogController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="28" column="3" lean-forward="true" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/Blog/BlogPosts/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
@@ -681,6 +653,20 @@
             <element signature="e#1111#1521#0" />
             <element signature="e#1748#4436#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/BlogController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="19" column="69" lean-forward="true" selection-start-line="19" selection-start-column="69" selection-end-line="19" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/blogs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="52" lean-forward="true" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
         </state>
       </provider>
     </entry>

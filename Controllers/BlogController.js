@@ -17,7 +17,7 @@ const upload = multer({
 exports.blog_get_all = async (req, res) => {
   try {
     const skip = Number(req.params.skip);
-    const blogs = await Blog.find().sort({createdAt: -1}).skip(skip);
+    const blogs = await Blog.find().sort({createdAt: -1}).skip(skip).limit(10);
     res.json(blogs)
   }catch(error){
     res.json({message: error})
