@@ -2,20 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8eaa3336-316c-49d2-8551-8fc4c11002f0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/Blog/BlogEdit/editBlog.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Blog/CreateBlog/createblog.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Blog/ViewBlog/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/images/load-icon.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/Blog/BlogPosts/blogpost.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/Blog/ViewBlog/viewblog.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/debug/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/BlogController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/BlogController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Blog/BlogEdit/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Blog/BlogEdit/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Blog/BlogPosts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Blog/BlogPosts/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Blog/CreateBlog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Blog/CreateBlog/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Footer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Footer/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/SideBar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/SideBar/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/npm-debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/npm-debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Blog/ViewBlog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Blog/ViewBlog/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/blogs.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/blogs.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,7 +29,7 @@
     <session id="824424345">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.100" value="1" />
           <entry key="project.open.time.13" value="1" />
@@ -39,39 +38,40 @@
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.34" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.57" value="1" />
           <entry key="project.open.time.59" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.79" value="1" />
-          <entry key="project.opened" value="16" />
+          <entry key="project.opened" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key=".env file" value="9" />
-          <entry key="CSS" value="4" />
+          <entry key=".env file" value="10" />
+          <entry key="CSS" value="13" />
           <entry key="HTML" value="1" />
           <entry key="Image" value="1" />
-          <entry key="JSON" value="6" />
-          <entry key="JavaScript" value="63" />
+          <entry key="JSON" value="8" />
+          <entry key="JavaScript" value="70" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="TypeScript" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key=".env file" value="63" />
-          <entry key="CSS" value="14" />
+          <entry key=".env file" value="82" />
+          <entry key="CSS" value="31" />
           <entry key="HTML" value="151" />
           <entry key="JSON" value="18" />
-          <entry key="JavaScript" value="7321" />
+          <entry key="JavaScript" value="9154" />
           <entry key="PLAIN_TEXT" value="45" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
         <counts>
-          <entry key="git.branch.create.new" value="2" />
+          <entry key="git.branch.create.new" value="3" />
         </counts>
       </usages-collector>
     </session>
@@ -79,44 +79,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/Blog/CreateBlog/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="129" selection-start-line="129" selection-end-line="129" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-                <element signature="n#CreateBlog#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Controllers/BlogController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1403">
-              <caret line="66" column="60" selection-start-line="66" selection-start-column="60" selection-end-line="66" selection-end-column="60" />
-              <folding>
-                <element signature="e#191#345#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Models/Blog.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1081">
-              <caret line="47" column="11" selection-start-line="47" selection-start-column="2" selection-end-line="47" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/blogs.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+            <state relative-caret-position="553">
+              <caret line="28" column="3" lean-forward="true" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -124,23 +90,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="17" column="79" lean-forward="true" selection-start-line="17" selection-start-column="79" selection-end-line="17" selection-end-column="79" />
+            <state relative-caret-position="368">
+              <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/Blog/ViewBlog/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1426">
-              <caret line="77" column="112" selection-start-line="77" selection-start-column="112" selection-end-line="77" selection-end-column="112" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-                <element signature="e#5700#7448#0" />
               </folding>
             </state>
           </provider>
@@ -149,21 +102,80 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/components/Blog/BlogPosts/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="766">
-              <caret line="80" column="16" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="16" />
+            <state relative-caret-position="158">
+              <caret line="23" column="79" lean-forward="true" selection-start-line="23" selection-start-column="79" selection-end-line="23" selection-end-column="79" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
-                <element signature="n#!!block;n#componentDidMount#0;n#BlogPost#0" />
+                <element signature="e#1111#1521#0" />
+                <element signature="e#1748#4436#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server.js">
+        <entry file="file://$PROJECT_DIR$/client/src/components/debug/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="667">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="713">
+              <caret line="35" column="45" selection-start-line="35" selection-start-column="45" selection-end-line="35" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#51#0" expanded="true" />
+                <element signature="n#!!block;n#render#0;n#Debug#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/components/Blog/ViewBlog/viewblog.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/components/Blog/BlogEdit/editBlog.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="11086">
+              <caret line="482" selection-start-line="482" selection-end-line="482" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/blogs.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/components/Blog/BlogPosts/blogpost.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="7" column="1" selection-end-line="7" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/public/css/styles.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36133">
+              <caret line="1571" column="3" selection-start-line="1571" selection-start-column="3" selection-end-line="1571" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -181,6 +193,7 @@
       <find>ima</find>
       <find>paddi</find>
       <find>padding:</find>
+      <find>users</find>
     </findStrings>
     <replaceStrings>
       <replace>Blog</replace>
@@ -191,7 +204,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feat/added-cloudinary" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
   </component>
@@ -211,19 +224,23 @@
         <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/client/package.json" />
         <option value="$PROJECT_DIR$/server.js" />
-        <option value="$PROJECT_DIR$/client/.env" />
         <option value="$PROJECT_DIR$/client/src/components/CreateBlog/index.js" />
         <option value="$PROJECT_DIR$/client/src/components/BlogPost/index.js" />
-        <option value="$PROJECT_DIR$/routes/blogs.js" />
         <option value="$PROJECT_DIR$/Models/Blog.js" />
-        <option value="$PROJECT_DIR$/Controllers/BlogController.js" />
         <option value="$PROJECT_DIR$/client/src/components/SideBar/index.js" />
         <option value="$PROJECT_DIR$/client/src/components/Blog/CreateBlog/createblog.css" />
         <option value="$PROJECT_DIR$/client/src/components/Blog/BlogEdit/editBlog.css" />
-        <option value="$PROJECT_DIR$/client/src/components/Blog/BlogEdit/index.js" />
         <option value="$PROJECT_DIR$/client/src/components/Blog/CreateBlog/index.js" />
-        <option value="$PROJECT_DIR$/client/src/App.js" />
+        <option value="$PROJECT_DIR$/client/.env" />
+        <option value="$PROJECT_DIR$/client/src/components/Blog/BlogPosts/blogpost.css" />
+        <option value="$PROJECT_DIR$/client/public/css/styles.css" />
         <option value="$PROJECT_DIR$/client/src/components/Blog/ViewBlog/index.js" />
+        <option value="$PROJECT_DIR$/client/src/components/Blog/ViewBlog/viewblog.css" />
+        <option value="$PROJECT_DIR$/routes/blogs.js" />
+        <option value="$PROJECT_DIR$/client/src/components/Blog/BlogEdit/index.js" />
+        <option value="$PROJECT_DIR$/client/src/App.js" />
+        <option value="$PROJECT_DIR$/client/src/components/debug/index.js" />
+        <option value="$PROJECT_DIR$/Controllers/BlogController.js" />
         <option value="$PROJECT_DIR$/client/src/components/Blog/BlogPosts/index.js" />
       </list>
     </option>
@@ -255,55 +272,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="mini-blog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mini-blog" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mini-blog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mini-blog" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mini-blog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mini-blog" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mini-blog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mini-blog" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mini-blog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mini-blog" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Blog" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mini-blog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mini-blog" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Blog" type="462c0819:PsiDirectoryNode" />
-              <item name="BlogPosts" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -314,13 +283,14 @@
     <property name="settings.editor.selected.configurable" value="zielu.gittoolbox.app.config" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/client/src/assets/images" />
-      <recent name="$PROJECT_DIR$/client/public" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/client/src/components/Blog" />
       <recent name="$PROJECT_DIR$/client" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/public/images" />
+      <recent name="$PROJECT_DIR$/client/src/assets/images" />
+      <recent name="$PROJECT_DIR$/client/public" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -361,16 +331,36 @@
       <workItem from="1568533477246" duration="1029000" />
       <workItem from="1568536196479" duration="74390000" />
       <workItem from="1568728012708" duration="3233000" />
+      <workItem from="1568876808234" duration="3157000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="188532000" />
+    <option name="totallyTimeSpent" value="225101000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
-    <editor active="true" />
     <layout>
+      <window_info content_ui="combo" id="Project" order="0" weight="0.19102903" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="GraphQL" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.43114406" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19102903" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -384,12 +374,12 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="GraphQL" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.6239407" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.43114406" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -490,19 +480,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+        <state relative-caret-position="414">
+          <caret line="18" column="23" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/uploads/IMAGE-1567899235243.jpg" />
-    <entry file="file://$PROJECT_DIR$/client/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="25" selection-start-line="25" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
@@ -519,13 +502,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/randomstring/index.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="44" lean-forward="true" selection-start-column="44" selection-end-column="44" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/cloudinary.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -553,18 +529,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="7" selection-start-column="7" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/public/css/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="1158" column="1" selection-start-line="1158" selection-start-column="1" selection-end-line="1158" selection-end-column="1" />
+        <state relative-caret-position="207">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
@@ -576,61 +542,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Blog/BlogEdit/editBlog.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11086">
-          <caret line="482" selection-start-line="482" selection-end-line="482" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/BlogController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1403">
-          <caret line="66" column="60" selection-start-line="66" selection-start-column="60" selection-end-line="66" selection-end-column="60" />
-          <folding>
-            <element signature="e#191#345#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Blog.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1081">
-          <caret line="47" column="11" selection-start-line="47" selection-start-column="2" selection-end-line="47" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/blogs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="667">
           <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="17" column="79" lean-forward="true" selection-start-line="17" selection-start-column="79" selection-end-line="17" selection-end-column="79" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Blog/BlogEdit/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="22" column="44" lean-forward="true" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -645,24 +560,126 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" column="20" selection-start-line="1" selection-end-line="1" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/Blog/ViewBlog/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1426">
-          <caret line="77" column="112" selection-start-line="77" selection-start-column="112" selection-end-line="77" selection-end-column="112" />
+        <state relative-caret-position="168">
+          <caret line="17" column="45" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
-            <element signature="e#5700#7448#0" />
+            <element signature="e#768#4851#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Blog.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="864">
+          <caret line="51" column="2" selection-start-line="51" selection-start-column="2" selection-end-line="51" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="4167" column="6" selection-start-line="4167" selection-start-column="6" selection-end-line="4167" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/Blog/BlogEdit/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="65" column="32" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/debug/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="713">
+          <caret line="35" column="45" selection-start-line="35" selection-start-column="45" selection-end-line="35" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+            <element signature="n#!!block;n#render#0;n#Debug#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/Blog/ViewBlog/viewblog.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/Blog/BlogEdit/editBlog.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11086">
+          <caret line="482" selection-start-line="482" selection-end-line="482" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/blogs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/Blog/BlogPosts/blogpost.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/public/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36133">
+          <caret line="1571" column="3" selection-start-line="1571" selection-start-column="3" selection-end-line="1571" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/BlogController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="553">
+          <caret line="28" column="3" lean-forward="true" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/Blog/BlogPosts/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="766">
-          <caret line="80" column="16" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="16" />
+        <state relative-caret-position="158">
+          <caret line="23" column="79" lean-forward="true" selection-start-line="23" selection-start-column="79" selection-end-line="23" selection-end-column="79" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
-            <element signature="n#!!block;n#componentDidMount#0;n#BlogPost#0" />
+            <element signature="e#1111#1521#0" />
+            <element signature="e#1748#4436#0" />
           </folding>
         </state>
       </provider>

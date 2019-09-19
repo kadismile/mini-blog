@@ -1,0 +1,17 @@
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 9%;
+    margin-top: 16%;
+    margin-bottom: 20%;
+}
+
+.loader {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 8%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}

@@ -18,14 +18,16 @@ class EditBlog extends React.Component {
     redirect: false
   };
   siteUrl = process.env.REACT_APP_PUBLIC_URL;
+  serverUrl = process.env.REACT_APP_SERVER_URL;
 
   componentDidMount(){
     const {pathname } = this.props.location;
     var arr = pathname.split('/');
     const _id  = arr[3];
     this.setState({_id});
-    axios.get(`${this.siteUrl}/blogs/${_id}`)
+    axios.get(`${this.serverUrl}/blogs/${_id}`)
       .then((response) => {
+        console.log(`${this.serverUrl}/blogs/${_id}`)
         this.setState(
           {title: response.data.title,
            author: response.data.author,
@@ -61,7 +63,7 @@ class EditBlog extends React.Component {
         'content-type': 'multipart/form-data'
       }
     };
-    axios.post(`${this.siteUrl}/blogs/${_id}`,formData, config)
+    axios.post(`${this.serverUrl}/blogs/${_id}`,formData, config)
       .then((response) => {
         toastr.success("Post Updated Successfully");
         this.setState({redirect: true});

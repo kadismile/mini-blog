@@ -1,8 +1,9 @@
 import React from 'react'
-import CreateBlog from "../CreateBlog";
 import axios from "axios";
 import moment from "moment";
 import {Link} from "react-router-dom";
+
+import './viewblog.css'
 
 
 class ViewBlog extends React.Component{
@@ -10,26 +11,30 @@ class ViewBlog extends React.Component{
   state= {
     _id: '',
     blog: [],
-    redirect: false
+    redirect: false,
+    loading: true
   };
+  serverUrl = process.env.REACT_APP_SERVER_URL;
   siteUrl = process.env.REACT_APP_PUBLIC_URL;
   async componentDidMount (){
     const {pathname } = this.props.location;
     var arr = pathname.split('/');
     const _id  = arr[2];
     this.setState({_id});
-    await axios.get(`${this.siteUrl}/blogs/${_id}`)
+    await axios.get(`${this.serverUrl}/blogs/${_id}`)
       .then((response) => {
-        console.log("response ",response)
-        this.setState({blog: response.data})
+        setTimeout(()=>{
+          this.setState({blog: response.data, loading: false}) ;
+        }, 500);
       }).catch((error) => {
       console.log(error)
     });
   }
 
   render(){
-    const {blog} = this.state
+    const {blog, loading} = this.state;
     return (
+      loading ? <img src={`${this.siteUrl}/images/load-icon.gif`} alt="" className="center"/> :
       <div className="col-md-9 col-md-offset-3">
         <div className="posts">
           <div className="posts-inner">
