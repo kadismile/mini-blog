@@ -1,3 +1,5 @@
+const randomstring = require("randomstring");
+const faker = require('faker');
 const Blog = require('../Models/Blog');
 const path = require("path");
 const cloudinary = require('../config/cloudinary');
@@ -15,9 +17,10 @@ const upload = multer({
 }).single("myImage");
 
 exports.blog_get_all = async (req, res) => {
+  //generateBlogs();
   try {
     const skip = Number(req.params.skip);
-    const blogs = await Blog.find().sort({createdAt: -1}).skip(skip);
+    const blogs = await Blog.find().sort({createdAt: -1}).skip(skip).limit(10);
     res.json(blogs)
   }catch(error){
     res.json({message: error})
@@ -101,3 +104,37 @@ exports.blog_delete = async (req, res) => {
     res.status(404).json({status: 'failed', message: error.message })
   }
 };
+
+generateBlogs = async () => {
+  //let blogs = [];
+  for (let id=1; id <= 10; id++) {
+    let imageUrl = await faker.image.imageUrl();
+    let public_id;
+    await cloudinary.uploader.upload(
+      imageUrl,
+      {public_id: "sample_image"},
+      function(error, result) {
+        imageUrl = result.url;
+        public_id = result.public_id;
+      }
+    );
+
+    let title = await faker.lorem.words();
+    let author = "Blonde";
+    let description = await faker.lorem.sentences();
+    let category = "sports";
+    let blogs = {
+      "_id": randomstring.generate(),
+      "title": title,
+      "description": description,
+      "author": author,
+      "imageUrl": imageUrl,
+      "public_id": public_id,
+      "category": category,
+    };
+    const blog = new Blog(blogs);
+    await blog.save();
+    console.log(faker.image.imageUrl())
+  }
+};
+

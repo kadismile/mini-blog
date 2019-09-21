@@ -15,7 +15,8 @@ class EditBlog extends React.Component {
     categoryId: "",
     file:'',
     _id: '',
-    redirect: false
+    redirect: false,
+    loading: false
   };
   siteUrl = process.env.REACT_APP_PUBLIC_URL;
   serverUrl = process.env.REACT_APP_SERVER_URL;
@@ -27,7 +28,6 @@ class EditBlog extends React.Component {
     this.setState({_id});
     axios.get(`${this.serverUrl}/blogs/${_id}`)
       .then((response) => {
-        console.log(`${this.serverUrl}/blogs/${_id}`)
         this.setState(
           {title: response.data.title,
            author: response.data.author,
@@ -45,7 +45,6 @@ class EditBlog extends React.Component {
     const {title, author, category, description, categoryId, file, _id
     } = this.state;
 
-    console.log(title)
     if((title === '') || (author === '') || (description === '') || (category === "")){
       toastr.error("Kindly Fill All Fields");
       return
@@ -66,9 +65,9 @@ class EditBlog extends React.Component {
     axios.post(`${this.serverUrl}/blogs/${_id}`,formData, config)
       .then((response) => {
         toastr.success("Post Updated Successfully");
-        this.setState({redirect: true});
         setTimeout(()=>{
-          this.setState({loading: false})
+          this.setState({loading: false});
+          this.setState({redirect: true});
         },2000);
       }).catch((error) => {
       console.log(error);
@@ -78,6 +77,7 @@ class EditBlog extends React.Component {
 
   render() {
     const {title, author, description, category, redirect, loading} = this.state;
+    console.log(loading)
     return redirect ? <Redirect to="/"/> : (
       <div className="col-md-9 col-md-offset-3">
         <div className="posts">
