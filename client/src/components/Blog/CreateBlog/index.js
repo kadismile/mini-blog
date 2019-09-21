@@ -19,6 +19,7 @@ class CreateBlog extends React.Component {
     loading: false
   };
   siteUrl = process.env.REACT_APP_PUBLIC_URL;
+  serverUrl = process.env.REACT_APP_SERVER_URL;
 
   submitPost = (e)=>{
     e.preventDefault();
@@ -30,7 +31,7 @@ class CreateBlog extends React.Component {
       toastr.error("Kindly Fill All Fields");
       return
     }
-
+    this.setState({loading: true});
     const formData = new FormData();
     formData.append('myImage',file);
     formData.append('title',title);
@@ -44,18 +45,19 @@ class CreateBlog extends React.Component {
       }
     };
 
-    axios.post(`${this.siteUrl}/blogs/create`,formData,config)
+    axios.post(`${this.serverUrl}/blogs/create`,formData,config)
       .then((response) => {
         toastr.success("Post Created Successfully");
-        this.setState({redirect: true});
         setTimeout(()=>{
+          this.setState({redirect: true});
           this.setState({loading: false})
         },2000);
       }).catch((error) => {
-        console.log(error)
+        console.log(error);
+      this.setState({loading: false})
       toastr.error("An error occured");
     });
-  }
+  };
 
   disableButton = ()=>{
     return !!
