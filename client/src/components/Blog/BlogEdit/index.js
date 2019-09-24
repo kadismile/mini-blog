@@ -14,7 +14,7 @@ class EditBlog extends React.Component {
     description: '',
     categoryId: "",
     file:'',
-    _id: '',
+    slug: '',
     redirect: false,
     loading: false
   };
@@ -24,9 +24,10 @@ class EditBlog extends React.Component {
   componentDidMount(){
     const {pathname } = this.props.location;
     var arr = pathname.split('/');
-    const _id  = arr[3];
-    this.setState({_id});
-    axios.get(`${this.serverUrl}/blogs/${_id}`)
+    const slug  = arr[3];
+    console.log("SLUG ", slug)
+    this.setState({slug});
+    axios.get(`${this.serverUrl}/blogs/${slug}`)
       .then((response) => {
         this.setState(
           {title: response.data.title,
@@ -42,7 +43,7 @@ class EditBlog extends React.Component {
 
   submitPost = (e)=>{
     e.preventDefault();
-    const {title, author, category, description, categoryId, file, _id
+    const {title, author, category, description, categoryId, file, slug
     } = this.state;
 
     if((title === '') || (author === '') || (description === '') || (category === "")){
@@ -62,7 +63,7 @@ class EditBlog extends React.Component {
         'content-type': 'multipart/form-data'
       }
     };
-    axios.post(`${this.serverUrl}/blogs/${_id}`,formData, config)
+    axios.post(`${this.serverUrl}/blogs/${slug}`,formData, config)
       .then((response) => {
         toastr.success("Post Updated Successfully");
         setTimeout(()=>{

@@ -10,7 +10,7 @@ import './viewblog.css'
 class ViewBlog extends React.Component{
 
   state= {
-    _id: '',
+    slug: '',
     blog: [],
     redirect: false,
     loading: true
@@ -20,9 +20,9 @@ class ViewBlog extends React.Component{
   async componentDidMount (){
     const {pathname } = this.props.location;
     var arr = pathname.split('/');
-    const _id  = arr[2];
-    this.setState({_id});
-    await axios.get(`${this.serverUrl}/blogs/${_id}`)
+    const slug  = arr[2];
+    this.setState({slug});
+    await axios.get(`${this.serverUrl}/blogs/${slug}`)
       .then((response) => {
         setTimeout(()=>{
           this.setState({blog: response.data, loading: false}) ;
@@ -36,8 +36,8 @@ class ViewBlog extends React.Component{
     const {blog, loading} = this.state;
     const disqusShortname = "mini-blog-1";
     const disqusConfig = {
-      url: `http://0440f05d.ngrok.o" + ${blog._id}`,
-      identifier: blog._id,
+      url: `http://0440f05d.ngrok.o" + ${blog.slug}`,
+      identifier: blog.slug,
       title: blog.title,
     };
     return (
@@ -54,7 +54,7 @@ class ViewBlog extends React.Component{
                   </div>
                   <a href="#" className="post-date"><span>{moment(blog.createdAt).format('MMM DD, Y')}</span></a>
                   <div className="post-details-child">
-                    <Link to={`/blog/edit/${blog._id}`} className="post-views">Edit</Link>
+                    <Link to={`/blog/edit/${blog.slug}`} className="post-views">Edit</Link>
                     <a href="#" className="post-views">15 views</a>
                     <a href="#" className="post-comments">03 Comments</a>
                     <div className="post-share-icon">

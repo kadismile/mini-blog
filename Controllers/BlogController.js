@@ -42,7 +42,7 @@ exports.blog_create = async (req, res) => {
       const blog = new Blog(blogDetails);
       await blog.save();
       if(!err){
-        return res.send(200).end();
+        return res.sendStatus(200).end();
       }
       res.sendStatus(blogDetails)
     });
@@ -54,8 +54,18 @@ exports.blog_create = async (req, res) => {
 };
 
 exports.blog_find_one = async (req, res) => {
+  console.log("1111111req.params.slug ", req.params.slug);
   try {
     const blog = await Blog.findById(req.params.blogId);
+    res.json(blog)
+  }catch(error){
+    res.status(404).json({status: 'failed', message: error.message })
+  }
+};
+
+exports.blog_find_by_slug = async (req, res) => {
+  try {
+    const blog = await Blog.findOne({slug: req.params.slug});
     res.json(blog)
   }catch(error){
     res.status(404).json({status: 'failed', message: error.message })
@@ -76,11 +86,11 @@ exports.blog_update = async (req, res) => {
           function (error, result) {
             blogDetails.imageUrl = result.url;
           });
-        await Blog.updateOne({ _id: req.params.blogId }, { $set: blogDetails });
+        await Blog.findOneAndUpdate({ slug: req.params.slug }, { $set: blogDetails }, {useFindAndModify: false});
       }else{
         blogDetails.imageUrl = blogDetails.myImage;
         delete blogDetails.myImage;
-        await Blog.updateOne({ _id: req.params.blogId }, { $set: blogDetails });
+        await Blog.findOneAndUpdate({ slug: req.params.slug }, { $set: blogDetails }, {useFindAndModify: false});
       }
       if(!err){
         return res.sendStatus(200).end();
@@ -137,4 +147,3 @@ generateBlogs = async () => {
     console.log(faker.image.imageUrl())
   }
 };
-
