@@ -1,4 +1,5 @@
 import React from 'react'
+import Disqus from "disqus-react";
 import axios from "axios";
 import moment from "moment";
 import {Link} from "react-router-dom";
@@ -33,6 +34,12 @@ class ViewBlog extends React.Component{
 
   render(){
     const {blog, loading} = this.state;
+    const disqusShortname = "mini_blog";
+    const disqusConfig = {
+      url: "http://0440f05d.ngrok.io",
+      identifier: blog._id,
+      title: blog.title,
+    };
     return (
       loading ? <img src={`${this.siteUrl}/images/load-icon.gif`} alt="" className="center"/> :
       <div className="col-md-9 col-md-offset-3">
@@ -83,10 +90,6 @@ class ViewBlog extends React.Component{
               <a href="#" title="They have originality "><i className="fa fa-angle-double-left" /> Next Post</a>
             </div>
           </div>
-
-
-
-
           <div id="related-posts">
             <h2 className="title"><span>Related Posts</span></h2>
             <div className="row">
@@ -126,6 +129,11 @@ class ViewBlog extends React.Component{
               </div>
             </div>
           </div>
+
+          <Disqus.DiscussionEmbed
+            shortname={disqusShortname}
+            config={disqusConfig}
+          />
 
         </div>
       </div>
