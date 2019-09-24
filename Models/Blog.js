@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-var randomstring = require("randomstring");
+const randomstring = require("randomstring");
 
 const BlogSchema = mongoose.Schema({
  _id: {
@@ -31,8 +31,15 @@ const BlogSchema = mongoose.Schema({
     type: String,
     required: false
   },
-  views: {
-    type: String
+  slug: {
+    type: String,
+    default: function() {
+      if (this.title) {
+        let slug = this.title.replace(/\s+/g, '-').toLowerCase();
+        return `${slug}-${this._id}`;
+      }
+      return null;
+    }
   },
   commentId: {
     type: String
@@ -59,5 +66,28 @@ const BlogSchema = mongoose.Schema({
   }
 
 });
+
+//this is the hook after insert
+BlogSchema.post("save", async function(doc) {
+  console.log('Inserted finished Again.', doc);
+});
+
+//this is the hook after update
+BlogSchema.post("findOneAndUpdate", async function(oldDoc, next) {
+  let newDoc = this.getUpdate().$set ;
+
+  if(oldDoc.title !== newDoc.title){
+    try{
+      let slug = newDoc.title.replace(/\s+/g, '-').toLowerCase();
+      newDoc.slug = `${slug}-${oldDoc._id}`;
+      await this.updateOne({ _id: oldDoc._id }, { $set: newDoc });
+    }catch (e) {
+      return next(e);
+    }
+  }
+  return next();
+});
+
+
 
 module.exports = mongoose.model('Blogs', BlogSchema);

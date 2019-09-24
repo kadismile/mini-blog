@@ -68,7 +68,7 @@ class BlogPost extends React.Component {
               return ( <article className="post" key={key}>
                 <div className="post-header">
                   <h2 className="title">
-                    <Link to={`/blog/${blog._id}`}>
+                    <Link to={`/blog/${blog.slug}`}>
                       {blog.title}
                     </Link>
                   </h2>
@@ -78,7 +78,7 @@ class BlogPost extends React.Component {
                     </div>
                     <a href="#" className="post-date"><span>{moment(blog.createdAt).format('MMM DD, Y')}</span></a>
                     <div className="post-details-child">
-                      <Link to={`/blog/edit/${blog._id}`} className="post-views">Edit</Link>
+                      <Link to={`/blog/edit/${blog.slug}`} className="post-views">Edit</Link>
                       <a href="#" className="post-views">15 views</a>
                       <a href="#" className="post-comments">03 Comments</a>
                       <div className="post-share-icon">
@@ -95,7 +95,7 @@ class BlogPost extends React.Component {
                   </div>
                 </div>
                 <div className="post-media">
-                  <Link to={`/blog/${blog._id}`} className="post-views">
+                  <Link to={`/blog/${blog.slug}`} className="post-views">
                     <img src={blog.imageUrl} alt="Post" />
                   </Link>
                 </div>
