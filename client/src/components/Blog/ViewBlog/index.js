@@ -34,9 +34,9 @@ class ViewBlog extends React.Component{
 
   render(){
     const {blog, loading} = this.state;
-    const disqusShortname = "mini_blog";
+    const disqusShortname = "mini-blog-1";
     const disqusConfig = {
-      url: "http://0440f05d.ngrok.io",
+      url: `http://0440f05d.ngrok.o" + ${blog._id}`,
       identifier: blog._id,
       title: blog.title,
     };
