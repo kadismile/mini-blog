@@ -1,7 +1,6 @@
 const jwtSecret = require('./jwtConfig');
 const bcrypt = require('bcryptjs');
 const BCRYPT_SALT_ROUNDS = 12;
-
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('../Models/User');
@@ -10,9 +9,7 @@ const ExtractJWT = require('passport-jwt').ExtractJwt;
 const user = require('../util/users');
 
 
-passport.use(
-  'register',
-  new LocalStrategy({
+passport.use('register', new LocalStrategy({
       usernameField: 'username',
       passwordField: 'password',
       emailField: 'email',
@@ -38,11 +35,7 @@ passport.use(
   ),
 );
 
-
-passport.use(
-  'login',
-  new LocalStrategy(
-    {
+passport.use('login', new LocalStrategy({
       usernameField: 'username',
       passwordField: 'password',
       session: false,
