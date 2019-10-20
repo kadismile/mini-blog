@@ -1,153 +1,174 @@
-import React, { Component, Fragment } from "react";
-import request from "superagent";
-import debounce from "lodash.debounce";
-import {Link} from "react-router-dom";
-import moment from "moment";
+import React from 'react'
+import { Redirect } from "react-router-dom";
+import LaddaButton, { XXL,EXPAND_LEFT } from 'react-ladda';
+import axios from 'axios'
+import toastr from "toastr";
+import '../Blog/CreateBlog/createblog.css'
 
-class Debug extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      error: false,
-      hasMore: true,
-      isLoading: false,
-      blogs: [],
-      skip: -1
+
+class CreateBlog extends React.Component {
+
+  state= {
+    title: '',
+    author: '',
+    category: '',
+    description: '',
+    categoryId: "2",
+    file:'',
+    redirect: false,
+    loading: false
+  };
+  siteUrl = process.env.REACT_APP_PUBLIC_URL;
+  serverUrl = process.env.REACT_APP_SERVER_URL;
+
+  submitPost =  (e)=>{
+    e.preventDefault();
+    const {title, author, category, description, categoryId, file
+    } = this.state;
+
+    /*console.log(file);
+    if((title === '') || (author === '') || (description === '') || (category === "")){
+      toastr.error("Kindly Fill All Fields");
+      return
+    }*/
+    this.setState({loading: true});
+    const formData = new FormData();
+    formData.append('myImage',file);
+    formData.append('title',title);
+    formData.append('author',author);
+    formData.append('category',category);
+    formData.append('description',description);
+    formData.append('categoryId',categoryId);
+
+    console.log("otijasope ")
+
+  const  data = {
+      /*"email": "koloflower@gmail.com",
+      "password": "excelly200!"*/
+    email: "unilevernigeria@tradedepot.co",
+    password: "uuuuuu"
+    };
+    const api = `http://19cc1e0a.ngrok.io/api/v2/agent/users`;
+    const headers = { "x-api-key": "SzLvzMk5AFNf9Ci2F3sCREFjQAjetwyH6J" };
+
+/*
+    axios.post(`localhost:3000/api/v1/authenticate/login`, data , )
+      .then((response) => {
+        toastr.success("Post Created Successfully");
+      }).catch((error) => {
+      console.log(error);
+      this.setState({loading: false});
+      toastr.error("An error occured ooooo");
+    })
+
+*/
+   /* const userQuery =  await axios.get(api, { headers: headers });
+    console.log("userQuery ", userQuery);
+*/
+/*
+   axios.get(api, { headers: headers },{
+    }).then((response) => {
+      console.log(response);
+        toastr.success("Post Created Successfully");
+      }).catch((error) => {
+        console.log(error);
+        this.setState({loading: false});
+        toastr.error("An error occured ooooo");
+      })
+*/
+
+
+    let settings = {
+      "async": true,
+      "crossDomain": true,
+      "access-control-allow-headers": "Origin, X-Requested-With, Content-Type, Accept, X-User-Id, X-Auth-Token, x-api-key",
+      "url": `http://19cc1e0a.ngrok.io/api/v2/superagent/logout`,
+      "method": "POST",
+      "headers": {
+        "x-api-key": "ehqD4GPjsHft2osWDv7Ggqa3ukmbB9jmyp_test_key",
+      },
+      data: {
+        "live": true
+      }
     };
 
-    window.onscroll = debounce(() => {
-      const {loadData,
-        state: {
-          error,
-          isLoading,
-          hasMore,
-        },
-      } = this;
-      if (error || isLoading || !hasMore) return;
-      if (
-        window.innerHeight + document.documentElement.scrollTop
-        === document.documentElement.offsetHeight
-      ) {
-        loadData();
-      }
-    }, 100);
-  }
-  serverUrl = process.env.REACT_APP_SERVER_URL;
-  siteUrl = process.env.REACT_APP_PUBLIC_URL;
-  componentWillMount() {
-    this.loadData();
-  }
 
-  loadData = () => {
-    let skip = this.state.skip;
-    this.setState({ isLoading: true, skip: skip+=1 }, () => {
-      console.log("Skip", skip);
-      request
-        .get(`${this.serverUrl}/blogs/get/${skip}`)
-        .then((results) => {
-          const nextData = results.body.map(blog => ({
-            title: blog.title,
-            author: blog.author,
-            category: blog.category,
-            description: blog.description,
-            imageUrl: blog.imageUrl,
-          }));
-          this.setState({
-            hasMore: (this.state.blogs.length < 100),
-            isLoading: false,
-            blogs: [...this.state.blogs, ...nextData,
-            ],
-          });
-        })
-        .catch((err) => {
-          this.setState({
-            error: err.message,
-            isLoading: false,
-          });
-        })
+    axios(settings).then((response) => {
+     console.log(response)
+    }).catch((error) => {
+      console.log("ERROR", error);
     });
+
+  };
+
+  disableButton = ()=>{
+    return !!
+        (this.state.title === '') ||
+      (this.state.author === '') ||
+      (this.state.description === '');
   };
 
   render() {
-    const {
-      error,
-      hasMore,
-      isLoading,
-      blogs,
-    } = this.state;
-
-    return (
-      /*loading ? <img src={`${this.siteUrl}/images/load-icon.gif`} alt="" className="center"/> :*/
-        <div className="col-md-9 col-md-offset-3">
-          <div className="posts">
-            <div className="posts-inner">
-              {blogs.map((blog, key)=>{
-                return ( <article className="post" key={key}>
-                  <div className="post-header">
-                    <h2 className="title">
-                      <Link to={`/blog/${blog._id}`}>
-                        {blog.title}
-                      </Link>
-                    </h2>
-                    <div className="post-details">
-                      <div className="post-cat">
-                        <a href="#">{blog.category}</a>
-                      </div>
-                      <a href="#" className="post-date"><span>{moment(blog.createdAt).format('MMM DD, Y')}</span></a>
-                      <div className="post-details-child">
-                        <Link to={`/blog/edit/${blog._id}`} className="post-views">Edit</Link>
-                        <a href="#" className="post-views">15 views</a>
-                        <a href="#" className="post-comments">03 Comments</a>
-                        <div className="post-share-icon">
-                          <span>SHARE</span>
-                          <ul>
-                            <li><a href="#"><i className="fa fa-facebook" /><span>Facebook</span></a></li>
-                            <li><a href="#"><i className="fa fa-google" /><span>Google Plus</span></a></li>
-                            <li><a href="#"><i className="fa fa-twitter" /><span>Twitter</span></a></li>
-                            <li><a href="#"><i className="fa fa-behance" /><span>Behance</span></a></li>
-                            <li><a href="#"><i className="fa fa-dribbble" /><span>Dribbble</span></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="post-media">
-                    <Link to={`/blog/${blog._id}`} className="post-views">
-                      <img src={blog.imageUrl} alt="Post" />
-                    </Link>
-                  </div>
-                  <div className="post-content">
-                    {/* The Content */}
-                    <div className="the-excerpt">
-                      <p>
-                        {blog.description}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="read-more">
-                    <a href="single.html">Continue Reading ...</a>
-                  </div>
-                </article>)
-              })}
-
-              <hr />
-              {error &&
-              <div style={{ color: '#900' }}>
-                {error}
+    const {redirect, loading} = this.state;
+    return redirect ? <Redirect to="/"/> :  (
+      <div className="col-md-9 col-md-offset-3">
+        <div className="posts">
+          <div className="posts-inner">
+            <article className="post">
+              <div className="post-header">
+                <h2 className="title"><span>Create Blog</span></h2>
               </div>
-              }
-              {isLoading &&
-              <img src={`${this.siteUrl}/images/load-icon.gif`} alt=""  className="loader"/>
-              }
-              {!hasMore &&
-              <div>You did it! You reached the end!</div>
-              }
 
-            </div>
+              <div className="post-content">
+                <div className="the-excerpt">
+
+                  <form action="#" className="contact" style={{marginTop: '10px'}} encType="multipart/form-data">
+                    <div className="contact-item">
+                      <label>Title *</label>
+                      <input name="author" onChange={(e)=> {this.setState({title: e.target.value}) }} type="text" />
+                    </div>
+                    <div className="contact-item">
+                      <label>Author *</label>
+                      <input name="email"  onChange={(e)=> {this.setState({author: e.target.value}) }} type="email" />
+                    </div>
+                    <div className="contact-item">
+                      <label>Category</label>
+                      <select value={this.state.category} onChange={(e)=>{this.setState({category: e.target.value})}}>
+                        <option value="">Select Category</option>
+                        <option value="Politics">Politics</option>
+                        <option value="Metro">Metro</option>
+                        <option value="Business">Business</option>
+                        <option value="Sports">Sports</option>
+                      </select>
+                    </div>
+                    <div className="contact-item">
+                      <label>Upload Image*</label>
+                      <input type='file' id='single' onChange={(e)=> {this.setState({file: e.target.files[0]}) }} />
+                    </div>
+                    <div className="contact-item">
+                      <label>Message *</label>
+                      <textarea name="comment" onChange={(e)=> {this.setState({description: e.target.value}) }}  />
+                    </div>
+                    <LaddaButton
+                      loading={loading}
+                      onClick={this.submitPost}
+                      data-size={XXL}
+                      data-style={EXPAND_LEFT}
+                      data-spinner-size={30}
+                      data-spinner-color="#eee"
+                      data-spinner-lines={20}
+                    >
+                      Submit Post
+                    </LaddaButton>
+                  </form>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
+      </div>
     )
   }
-
 }
-export default Debug
+
+export default CreateBlog

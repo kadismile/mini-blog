@@ -41,7 +41,8 @@ class CreateBlog extends React.Component {
     formData.append('categoryId',categoryId);
     const config = {
       headers: {
-        'content-type': 'multipart/form-data'
+        'content-type': 'multipart/form-data',
+        'x-api-key': "wertyfnfjklkjmertyuidfghjkcvn"
       }
     };
 

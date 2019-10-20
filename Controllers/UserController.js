@@ -1,6 +1,6 @@
 const jwtSecret = require('../config/jwtConfig');
 const User = require('../Models/User');
-const user = require('../util/users');
+const user = require('../helpers/users');
 var passport = require('passport');
 var jwt = require('jsonwebtoken');
 
@@ -21,6 +21,7 @@ exports.user_create = async (req, res, next) => {
         const data = {
           name: req.body.name,
           email: req.body.email,
+          agentProfile: req.body.agentProfile,
         };
         await User.updateOne({_id: userData._id}, {$set: data});
         res.status(200).json({status: 'Success', message: userData});
