@@ -1,6 +1,17 @@
 import React from 'react'
 import Logo from '../../assets/images/logo.png'
+import { auth } from "../../actions/authActions";
+import { connect } from "react-redux";
+
 class Sidebar extends React.Component {
+
+  logOut =() => {
+    this.props.onLogOut()
+  };
+  displayLogOut =()=> {
+    let auth = this.props.auth;
+    return auth.isAuthenticated ? <a href="#" onClick={this.logOut}>Log Out</a> : ''
+  };
 
   render() {
     return (
@@ -66,7 +77,10 @@ class Sidebar extends React.Component {
                       </ul>
                     </li>
                     <li>
-                      <a href="/blog/create">Contact</a>
+                      <a href="/new/blog">Add New Post</a>
+                    </li>
+                    <li>
+                      {this.displayLogOut()}
                     </li>
                   </ul>
                 </nav>
@@ -109,4 +123,21 @@ class Sidebar extends React.Component {
   }
 }
 
-export default Sidebar
+function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  }
+}
+
+function matchDispatchToProps(dispatch) {
+  return {
+    onLogOut() {
+      dispatch(auth.logoOut());
+    }
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  matchDispatchToProps
+)(Sidebar);

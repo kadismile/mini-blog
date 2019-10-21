@@ -36,14 +36,14 @@ passport.use('register', new LocalStrategy({
 );
 
 passport.use('login', new LocalStrategy({
-      usernameField: 'username',
+      usernameField: 'email',
       passwordField: 'password',
       session: false,
     },
     async (username, password, done) => {
       try {
-        let  foundUser = await user.findUserByUsername(username);
-        if(user){
+        let foundUser = await user.findUser(username);
+        if(foundUser){
           bcrypt.compare(password, foundUser.password, async function(err, hash) {
             if (hash !== true) {
               return done(null, false, { message: 'passwords do not match' });
@@ -51,7 +51,7 @@ passport.use('login', new LocalStrategy({
             return done(null, foundUser);
           });
         }else{
-          return done(null, false, { message: 'Bad Login' });
+          return done(null, false, { message: 'Invalid Credentials' });
         }
       } catch (err) {
         done(err);
