@@ -45,11 +45,22 @@ class CreateBlog extends React.Component {
   const  data = {
       /*"email": "koloflower@gmail.com",
       "password": "excelly200!"*/
-    email: "unilevernigeria@tradedepot.co",
-    password: "uuuuuu"
+   /* email: "unilevernigeria@tradedepot.co",
+    password: "uuuuuu"*/
+    "agentId":"ertyuii",
+    "firstName":"Peer",
+    "lastName":"Ramza",
+    "phoneNumber":"09092345386",
+    "countryCode":"NG",
+    "longitude":2.3569813,
+    "latitude":5.52897902,
+    "company":"Ramza",
+    "address":"3 Abolade St, Mushin, Lagos, Nigeria",
+    "description":"Cool Store",
+    "state":"Osun"
     };
-    const api = `http://19cc1e0a.ngrok.io/api/v2/agent/users`;
-    const headers = { "x-api-key": "SzLvzMk5AFNf9Ci2F3sCREFjQAjetwyH6J" };
+    const api = `https://app.sandbox.tradedepot.co/api/v2/agent/register`;
+    const headers = { "x-api-key": "PXqxmF9Sbr4R6tFivoFjaFxr8bpSSSv47t_test_key" };
 
 /*
     axios.post(`localhost:3000/api/v1/authenticate/login`, data , )
@@ -82,13 +93,23 @@ class CreateBlog extends React.Component {
       "async": true,
       "crossDomain": true,
       "access-control-allow-headers": "Origin, X-Requested-With, Content-Type, Accept, X-User-Id, X-Auth-Token, x-api-key",
-      "url": `http://19cc1e0a.ngrok.io/api/v2/superagent/logout`,
+      "url": `https://app.sandbox.tradedepot.co/api/v2/agent/register`,
       "method": "POST",
       "headers": {
-        "x-api-key": "ehqD4GPjsHft2osWDv7Ggqa3ukmbB9jmyp_test_key",
+        "x-api-key": "PXqxmF9Sbr4R6tFivoFjaFxr8bpSSSv47t_test_key",
       },
       data: {
-        "live": true
+        "agentId":"ertyuii",
+        "firstName":"Peer",
+        "lastName":"Ramza",
+        "phoneNumber":"09092345386",
+        "countryCode":"NG",
+        "longitude":2.3569813,
+        "latitude":5.52897902,
+        "company":"Ramza",
+        "address":"3 Abolade St, Mushin, Lagos, Nigeria",
+        "description":"Cool Store",
+        "state":"Osun"
       }
     };
 

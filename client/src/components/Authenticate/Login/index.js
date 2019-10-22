@@ -1,6 +1,6 @@
 import React from 'react'
 import {Redirect} from "react-router";
-import LaddaButton, {EXPAND_LEFT, XXL} from "react-ladda";
+import LaddaButton, { XXL,EXPAND_LEFT} from 'react-ladda';
 import { auth } from "../../../actions/authActions";
 import { connect } from "react-redux";
 
@@ -16,11 +16,14 @@ class Login extends React.Component {
 
   submitPost = (e) => {
     e.preventDefault();
+    this.setState({loading: true});
     const {email, password }  = this.state;
     this.props.onLogin(email, password);
     setTimeout(()=> {
       if (this.props.auth.isAuthenticated) {
         this.setState({ redirect: true })
+      } else {
+        this.setState({loading: false})
       }
     }, 1000);
   };
@@ -29,6 +32,13 @@ class Login extends React.Component {
     const { loading , redirect} = this.state;
       return redirect ? <Redirect to='/'/> : (
        <div className="col-md-9 col-md-offset-3">
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
         <div className="posts">
           <div className="posts-inner">
             <article className="post">

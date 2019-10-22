@@ -2,7 +2,7 @@ import React from 'react'
 import Logo from '../../assets/images/logo.png'
 import { auth } from "../../actions/authActions";
 import { connect } from "react-redux";
-
+import {Link} from "react-router-dom";
 class Sidebar extends React.Component {
 
   logOut =() => {
@@ -20,32 +20,15 @@ class Sidebar extends React.Component {
           <div className="table">
             <div className="table-cell">
               <div className="logo">
-                <a href="/">
+                <Link to="/" className="post-views">
                   <img src={Logo} alt="Logo" />
-                </a>
+                </Link>
               </div>
               <div className="main-menu">
                 <nav>
                   <ul className="menu-list">
                     <li className="menu-item-has-children">
-                      <a href="/">Home</a>
-                      <ul className="sub-menu">
-                        <li>
-                          <a href="index.html">Standard Layout</a>
-                        </li>
-                        <li>
-                          <a href="index-grid.html">Grid Layout</a>
-                        </li>
-                        <li>
-                          <a href="index-grid-1st-large.html">Grid 1st Large</a>
-                        </li>
-                        <li>
-                          <a href="index-list.html">List Layout</a>
-                        </li>
-                        <li>
-                          <a href="index-list-1st-large.html">List 1st Large</a>
-                        </li>
-                      </ul>
+                      <Link to="/">Home</Link>
                     </li>
                     <li>
                       <a href="about.html">About</a>
@@ -56,26 +39,11 @@ class Sidebar extends React.Component {
                     <li>
                       <a href="#">Travel</a>
                     </li>
-                    <li className="menu-item-has-children">
-                      <a href="single.html">Single</a>
-                      <ul className="sub-menu">
-                        <li>
-                          <a href="single.html">Image</a>
-                        </li>
-                        <li>
-                          <a href="single.html">Gallery</a>
-                        </li>
-                        <li>
-                          <a href="single.html">Slideshow</a>
-                        </li>
-                        <li>
-                          <a href="single.html">Youtube Video</a>
-                        </li>
-                        <li>
-                          <a href="single.html">Vimeo Video</a>
-                        </li>
-                      </ul>
+
+                    <li>
+                      <a href="#">Culture</a>
                     </li>
+
                     <li>
                       <a href="/new/blog">Add New Post</a>
                     </li>

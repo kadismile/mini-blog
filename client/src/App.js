@@ -14,21 +14,6 @@ import ViewBlog from "./components/Blog/ViewBlog";
 import Debug from "./components/debug/";
 import Login from "./components/Authenticate/Login";
 
-
-const AdminRoutes = () => {
-  return (
-    <Router>
-      <>
-        <Sidebar/>
-        <Switch>
-          <Route path="/new/blog" exact render={props => <CreateBlog {...props} />}/>
-          <Route path="/blog/edit/:blog_id" exact render={props => <EditBlog {...props} />}/>
-        </Switch>
-      </>
-    </Router>
-  );
-};
-
   const App = () => {
     return (
       <Router>
