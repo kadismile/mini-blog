@@ -1,5 +1,6 @@
 import React from 'react'
 import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 import LaddaButton, { XXL,EXPAND_LEFT} from 'react-ladda';
 import axios from 'axios'
 import toastr from "toastr";
@@ -26,7 +27,6 @@ class CreateBlog extends React.Component {
     const {title, author, category, description, categoryId, file
     } = this.state;
 
-    console.log(file);
     if((title === '') || (author === '') || (description === '') || (category === "")){
       toastr.error("Kindly Fill All Fields");
       return
@@ -42,7 +42,7 @@ class CreateBlog extends React.Component {
     const config = {
       headers: {
         'content-type': 'multipart/form-data',
-        'x-api-key': "wertyfnfjklkjmertyuidfghjkcvn"
+        'Authorization': `BEARER ${this.props.auth.authToken}`
       }
     };
 
@@ -130,4 +130,17 @@ class CreateBlog extends React.Component {
   }
 }
 
-export default CreateBlog
+function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  }
+}
+
+function matchDispatchToProps(dispatch) {
+
+}
+
+export default connect(
+  mapStateToProps,
+  matchDispatchToProps
+)(CreateBlog);

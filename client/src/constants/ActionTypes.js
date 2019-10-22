@@ -1,0 +1,5 @@
+
+
+export const IS_AUTHENTICATED = "IS_AUTHENTICATED";
+export const IS_LOGGED_OUT = "IS_LOGGED_OUT";
+export const FAILED_AUTH = "FAILED_AUTH";

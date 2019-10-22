@@ -1,7 +1,9 @@
 var router = require('express').Router();
 const BlogController = require('../Controllers/BlogController');
+const AppController = require('../Controllers/AppController');
 const authorize = require('../helpers/authorize');
 
+router.get('/authenticate', authorize('Admin'), AppController.authenticate);
 
 router.get('/get/:skip', BlogController.blog_get_all);
 

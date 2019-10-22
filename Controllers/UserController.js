@@ -42,12 +42,13 @@ exports.user_create = async (req, res, next) => {
         res.status(409).json({status: 'failed', message: info.message});
       } else {
         try{
-          const token = jwt.sign({ id: user.username }, jwtSecret.secret, { expiresIn: '720m' });
+          const token = jwt.sign({ id: user.username }, jwtSecret.secret, { expiresIn: '720m' })
+          let authUser = {};
+          authUser.authenticated = true,
+          authUser.authToken = token,
           res.status(200).send({
-            auth: true,
-            token: token,
-            user,
-            message: 'user found & logged in',
+            user: {...authUser, ...user._doc},
+            message: 'Success',
           });
         }catch (e) {
           console.log(e)

@@ -59,7 +59,6 @@ exports.blog_create = async (req, res) => {
 };
 
 exports.blog_find_one = async (req, res) => {
-  console.log("1111111req.params.slug ", req.params.slug);
   try {
     const blog = await Blog.findById(req.params.blogId);
     res.json(blog)
