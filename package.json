@@ -42,7 +42,7 @@
     "passport-twitter": "~1.0.4",
     "randomstring": "^1.1.5",
     "react-ladda": "^6.0.0",
-    "socket.io": "^2.2.0",
+    "socket.io": "^2.5.0",
     "superagent": "^5.1.0"
   }
 }
