@@ -14,7 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "*",
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.20.1",
     "cancan": "^3.1.0",
     "cloudinary": "^1.14.0",
     "concurrently": "^4.1.1",
@@ -22,7 +22,7 @@
     "cors": "^2.8.5",
     "disqus-react": "^1.0.7",
     "dotenv": "^8.0.0",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "express-session": "^1.16.2",
     "faker": "^4.1.0",
     "jquery": "^3.4.1",
